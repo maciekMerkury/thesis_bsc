@@ -19,11 +19,6 @@
  * IN THE SOFTWARE.
  */
 
-#define read read2
-#define readv readv2
-#define write write2
-#define writev writev2
-
 #include "uv.h"
 #include "internal.h"
 
@@ -33,8 +28,6 @@
 #include <assert.h>
 #include <errno.h>
 
-#include <demi_epoll/sockets.h>
-
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/uio.h>
@@ -42,10 +35,7 @@
 #include <unistd.h>
 #include <limits.h> /* IOV_MAX */
 
-#undef read
-#undef readv
-#undef write
-#undef writev
+#include <demi_epoll/dpoll.h>
 
 #if defined(__APPLE__)
 # include <sys/event.h>
