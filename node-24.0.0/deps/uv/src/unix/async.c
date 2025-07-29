@@ -38,7 +38,7 @@
 #include <sys/eventfd.h>
 #endif
 
-#include <demi_epoll/sockets.h>
+#include <demi_epoll/dpoll.h>
 
 #if UV__KQUEUE_EVFILT_USER
 static uv_once_t kqueue_runtime_detection_guard = UV_ONCE_INIT;

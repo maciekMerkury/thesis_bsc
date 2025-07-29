@@ -45,7 +45,7 @@
 #include <sys/utsname.h>
 #include <sys/time.h>
 #include <time.h> /* clock_gettime */
-#include <demi_epoll/sockets.h>
+#include <demi_epoll/dpoll.h>
 
 #ifdef __sun
 # include <sys/filio.h>

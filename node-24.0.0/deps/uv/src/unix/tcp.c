@@ -26,8 +26,7 @@
 #include <unistd.h>
 #include <assert.h>
 #include <errno.h>
-#include <demi_epoll/sockets.h>
-#include <demi_epoll/log.h>
+#include <demi_epoll/dpoll.h>
 
 #include <sys/types.h>
 #include <sys/socket.h>
