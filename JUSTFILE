@@ -5,8 +5,8 @@ export INSTALL_PREFIX := install_prefix
 # catnap is the default linux socket
 libos := "catnap"
 
-demikernel_flags := "LIBOS=" + libos + " INSTALL_PREFIX=" + install_prefix + " DEBUG=" + if build_type == "debug" { "yes" } else { "no" }
-nodejs_flags := "--ninja --prefix " + install_prefix + " " + if build_type == "debug" { "--debug --debug-node" } else { "" }
+demikernel_flags := "LIBOS=" + libos + " INSTALL_PREFIX=" + install_prefix + " DEBUG="
+nodejs_flags := "--ninja --prefix " + install_prefix + " "
 
 dpdk_script_path := if libos == "catnip" { "./build-install-dpdk.sh" } else { "" }
 hugepages_script := if libos == "catnip" { "./setup-hugepages.sh" } else { "" }
@@ -31,7 +31,7 @@ demikernel: dpdk
 [working-directory: './node-24.0.0/']
 nodejs:
     ./configure {{ nodejs_flags }} 
-    make {{ if build_type == "debug" { "-C out BUILDTYPE=Debug" } else { "" } }} all
+    make all
     sudo make install
 
 gen_config:
