@@ -8,13 +8,13 @@ libos := "catnap"
 demikernel_flags := "LIBOS=" + libos + " INSTALL_PREFIX=" + install_prefix + " DEBUG="
 nodejs_flags := "--ninja --prefix " + install_prefix + " "
 
-dpdk_script_path := if libos == "catnip" { "./build-install-dpdk.sh" } else { "" }
-hugepages_script := if libos == "catnip" { "./setup-hugepages.sh" } else { "" }
+build_dpdk := if libos == "catnip" { "sudo ./build-install-dpdk.sh" } else { "" }
+setup_hugepages := if libos == "catnip" { "sudo ./setup-hugepages.sh" } else { "" }
 
 [working-directory: './demikernel/scripts/']
 dpdk:
-    sudo {{hugepages_script}}
-    sudo {{dpdk_script_path}}
+    {{setup_hugepages}}
+    {{build_dpdk}}
 
 install_all: demikernel demi_epoll nodejs
 
