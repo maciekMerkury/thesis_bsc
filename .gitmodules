@@ -1,0 +1,3 @@
+[submodule "demi_epoll"]
+	path = demi_epoll
+	url = https://github.com/maciekMerkury/demi_epoll.git
