@@ -15,6 +15,6 @@ const server = net.createServer((socket) => {
 });
 
 server.listen(PORT, IP, () => {
-  console.log('Echo server listening on ${IP}:${PORT}');
+  console.log(`Echo server listening on ${IP}:${PORT}`);
 });
 
